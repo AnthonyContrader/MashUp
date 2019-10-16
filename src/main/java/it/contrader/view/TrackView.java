@@ -20,11 +20,11 @@ public class TrackView extends AbstractView {
 	public void showResults(Request request) {
 		if(request != null) {
 			System.out.println("\n------------------- Gestione tracce ----------------\n");
-			System.out.println("ID\tTitle\tAuthor\t");
+			System.out.println("ID\t  Title\t   Author\t");
 			System.out.println("----------------------------------------------------\n");
 		
 			@SuppressWarnings("unchecked")
-			List<TrackDTO> tracks = (List<TrackDTO>) request.get("users");
+			List<TrackDTO> tracks = (List<TrackDTO>) request.get("tracks");
 			for (TrackDTO t: tracks) 
 				System.out.println(t);
 			System.out.println();

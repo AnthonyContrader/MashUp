@@ -1,4 +1,4 @@
-package it.contrader.view.user;
+package it.contrader.view.track;
 
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;

@@ -19,7 +19,7 @@ public class TrackDAO {
 	}
 
 	public List<Track> getAll() {
-		List<Track> trackList = new ArrayList<>();
+		List<Track> tracksList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
@@ -31,12 +31,12 @@ public class TrackDAO {
 				String author = resultSet.getString("author");
 				track = new Track(title, author);
 				track.setId(id);
-				trackList.add(track);
+				tracksList.add(track);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return trackList;
+		return tracksList;
 	}
 
 	public boolean insert(Track trackToInsert) {

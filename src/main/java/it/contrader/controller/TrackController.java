@@ -77,7 +77,7 @@ public class TrackController implements Controller {
 		case "TRACKLIST":
 			List<TrackDTO> tracksDTO = trackService.getAll();
 			
-			request.put("track", tracksDTO);
+			request.put("tracks", tracksDTO);
 			MainDispatcher.getInstance().callView("Track" , request);
 			break;
 			

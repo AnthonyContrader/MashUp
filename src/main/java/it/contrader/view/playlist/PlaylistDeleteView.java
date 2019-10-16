@@ -1,4 +1,4 @@
-package it.contrader.view.user;
+package it.contrader.view.playlist;
 
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
