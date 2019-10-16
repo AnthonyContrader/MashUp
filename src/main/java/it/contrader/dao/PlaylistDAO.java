@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Playlist;
-import it.contrader.model.User;
 
 public class PlaylistDAO{
 

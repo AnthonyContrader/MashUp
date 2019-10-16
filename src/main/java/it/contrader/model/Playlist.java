@@ -63,7 +63,7 @@ public Playlist(){
 
 	@Override
 	public String toString() {
-		return "Playlist [id=" + id + ", name=" + name + ", genre=" + genre + "]";
+		return  id + "\t"  + name +"\t\t" + genre;
 	}
 
 
