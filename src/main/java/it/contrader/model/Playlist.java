@@ -32,7 +32,7 @@ public Playlist(){
 /*definisco i metodi di Plylist*/
 	
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 
@@ -42,7 +42,7 @@ public Playlist(){
 
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 
@@ -52,7 +52,7 @@ public Playlist(){
 
 
 	public String getGenre() {
-		return genre;
+		return this.genre;
 	}
 
 

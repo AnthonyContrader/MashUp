@@ -6,6 +6,7 @@ import it.contrader.view.AbstractView;
 
 public class PlaylistUpdateView extends AbstractView{
 	private Request request;
+	
 	private int id;
 	private String name;
 	private String genre;

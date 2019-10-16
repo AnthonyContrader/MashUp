@@ -30,7 +30,7 @@ public PlaylistDTO(){
 
 	
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 
@@ -40,7 +40,7 @@ public PlaylistDTO(){
 
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 
@@ -50,7 +50,7 @@ public PlaylistDTO(){
 
 
 	public String getGenre() {
-		return genre;
+		return this.genre;
 	}
 
 

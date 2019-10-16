@@ -12,7 +12,7 @@ public class PlaylistDAO{
 	private final String QUERY_ALL = "SELECT * FROM playlist";
 	private final String QUERY_CREATE = "INSERT INTO playlist (name, genre) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM playlist WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE playlist SET id=?, name=?, genre=? WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE playlist SET name=?, genre=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM playlist WHERE id=?";
 
 	public PlaylistDAO(){
@@ -87,7 +87,7 @@ public class PlaylistDAO{
 		Playlist playlistRead = read(playlistToUpdate.getId());
 		if (!playlistRead.equals(playlistToUpdate)) {
 			try {
-				// Fill the userToUpdate object
+				
 				if (playlistToUpdate.getName() == null || playlistToUpdate.getName().equals("")) {
 					playlistToUpdate.setName((playlistRead.getName()));
 				}
@@ -96,11 +96,11 @@ public class PlaylistDAO{
 					playlistToUpdate.setGenre((playlistRead.getGenre()));
 				}
 
-				// Update the user
+				
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, playlistToUpdate.getName());
 				preparedStatement.setString(2, playlistToUpdate.getGenre());
-				preparedStatement.setInt(4, playlistToUpdate.getId());
+				preparedStatement.setInt(3, playlistToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

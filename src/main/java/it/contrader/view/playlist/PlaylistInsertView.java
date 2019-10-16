@@ -25,9 +25,9 @@ public class PlaylistInsertView extends AbstractView {
 	
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci username dell'utente:");
+			System.out.println("Inserisci nome Playlist:");
 			name = getInput();
-			System.out.println("Inserisci password dell'utente:");
+			System.out.println("Inserisci genere Playlist:");
 			genre = getInput();
 		}
 	
