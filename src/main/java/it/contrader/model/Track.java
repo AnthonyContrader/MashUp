@@ -55,7 +55,7 @@ public Track() {
 
 	@Override
 	public String toString() {
-		return  + id	+ title		+ author ;
+		return  + id + "\t"	+ title	+ "\t\t"	+ author ;
 	}
 
 	@Override

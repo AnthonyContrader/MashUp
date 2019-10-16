@@ -34,7 +34,7 @@ public class TrackReadView extends AbstractView {
 		request = new Request();
 		request.put("id", id);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("Title", "doControl", request);
+		MainDispatcher.getInstance().callAction("Track", "doControl", request);
 	}
 
 }

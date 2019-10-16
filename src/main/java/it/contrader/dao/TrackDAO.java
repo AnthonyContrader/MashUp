@@ -11,7 +11,7 @@ public class TrackDAO {
 	private final String QUERY_ALL = "SELECT * FROM track";
 	private final String QUERY_CREATE = "INSERT INTO track (title, author) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM track WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE track SET title=?, author=?, WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE track SET title=?, author=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM track WHERE id=?";
 
 	public TrackDAO() {
@@ -91,14 +91,14 @@ public class TrackDAO {
 					trackToUpdate.setTitle(trackRead.getTitle());				}
 
 				if (trackToUpdate.getAuthor() == null || trackToUpdate.getAuthor().equals("")) {
-					trackToUpdate.setTitle(trackRead.getTitle());
+					trackToUpdate.setAuthor(trackRead.getAuthor());
 				}
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, trackToUpdate.getTitle());
 				preparedStatement.setString(2, trackToUpdate.getAuthor());
-				preparedStatement.setInt(4, trackToUpdate.getId());
+				preparedStatement.setInt(3, trackToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
