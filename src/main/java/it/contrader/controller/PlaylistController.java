@@ -13,10 +13,11 @@ public class PlaylistController implements Controller {
 	private PlaylistService playlistService;
 	
 	public PlaylistController() {
+		
 		this.playlistService = new PlaylistService();
 	
 		}
-	
+	@Override
 	public void doControl (Request request) {
 		
 		String mode = (String) request.get("mode");
