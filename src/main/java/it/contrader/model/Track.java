@@ -1,6 +1,6 @@
 package it.contrader.model;
 
-/*definisco gli attributi di Brano */
+/*definisco gli attributi di Track */
 
 public class Track {
 	
@@ -55,7 +55,7 @@ public Track() {
 
 	@Override
 	public String toString() {
-		return "Track [id=" + id + ", title=" + title + ", author=" + author + "]";
+		return  + id	+ title		+ author ;
 	}
 
 	@Override

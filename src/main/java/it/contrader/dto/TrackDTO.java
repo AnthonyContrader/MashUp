@@ -53,6 +53,6 @@ public TrackDTO() {
 
 	@Override
 	public String toString() {
-		return "Track [id=" + id + ", title=" + title + ", author=" + author + "]";
+		return + id		 + title	 + author;
 	}
 }
