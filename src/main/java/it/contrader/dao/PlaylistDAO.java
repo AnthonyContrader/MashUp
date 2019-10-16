@@ -11,7 +11,7 @@ public class PlaylistDAO{
 
 
 	private final String QUERY_ALL = "SELECT * FROM playlist";
-	private final String QUERY_CREATE = "INSERT INTO playlist (id, name, genre) VALUES (?,?,?)";
+	private final String QUERY_CREATE = "INSERT INTO playlist (name, genre) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM playlist WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE playlist SET id=?, name=?, genre=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM playlist WHERE id=?";

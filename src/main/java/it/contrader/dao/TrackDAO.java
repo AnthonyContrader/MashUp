@@ -9,7 +9,7 @@ import it.contrader.model.Track;;
 public class TrackDAO {
 
 	private final String QUERY_ALL = "SELECT * FROM track";
-	private final String QUERY_CREATE = "INSERT INTO track (title, author) VALUES (?,?,?)";
+	private final String QUERY_CREATE = "INSERT INTO track (title, author) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM track WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE track SET title=?, author=?, WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM track WHERE id=?";
