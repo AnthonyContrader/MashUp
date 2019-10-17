@@ -23,13 +23,13 @@ public class HomeAdminView extends AbstractView {
 	 */
     public void showResults(Request request) {
     	if(request!=null) {
-    	System.out.println("\n Benvenuto in SAMPLE PROJECT "+request.get("username").toString() + "\n");
+    	System.out.println("\n Benvenuto in MASHUP PROJECT "+request.get("username").toString() + "\n");
     	}
     }
 
 
     /**
-     * Chiede all'utente di effettuare una scelta (da console)
+     * Chiede all'admin di effettuare una scelta (da console)
      */
     public void showOptions() {
         System.out.println("-------------MENU------------\n");
@@ -66,8 +66,8 @@ public class HomeAdminView extends AbstractView {
         case "e":
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;
-        default:
         	
+        default:
             request.put("choice", choice);
         	MainDispatcher.getInstance().callAction("Login", "doControl", request);
         }
