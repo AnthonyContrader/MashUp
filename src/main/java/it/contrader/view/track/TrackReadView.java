@@ -25,7 +25,7 @@ public class TrackReadView extends AbstractView {
 	
 	@Override
 	public void showOptions() {
-		System.out.println("Inserisci l'ID dell'utente:");
+		System.out.println("Inserisci l'ID del brano:");
 		id = Integer.parseInt(getInput());
 	}
 

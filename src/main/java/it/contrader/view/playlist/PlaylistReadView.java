@@ -29,7 +29,7 @@ public class PlaylistReadView extends AbstractView{
 	
 	@Override
 	public void showOptions() {
-		System.out.println("Inserisci l'ID dell'utente:");
+		System.out.println("Inserisci l'ID della playlist:");
 		id = Integer.parseInt(getInput());
 	}
 	

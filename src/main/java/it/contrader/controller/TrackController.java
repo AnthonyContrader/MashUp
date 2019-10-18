@@ -100,11 +100,11 @@ public class TrackController implements Controller {
 				break;
 				
 			case "E":
-				MainDispatcher.getInstance().callView(sub_package + "Login", null);
+				MainDispatcher.getInstance().callView("Login", null);
 				break;
 				
 			case "B":
-				MainDispatcher.getInstance().callView(sub_package + "HomeAdmin", null);
+				MainDispatcher.getInstance().callView("HomeAdmin", null);
 				break;
 				
 				default:

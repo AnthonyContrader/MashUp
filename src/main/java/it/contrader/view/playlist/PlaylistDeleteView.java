@@ -24,7 +24,7 @@ public class PlaylistDeleteView extends AbstractView{
 	
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci id dell'utente:");
+			System.out.println("Inserisci id della playlist:");
 			id = Integer.parseInt(getInput());
 
 	}
