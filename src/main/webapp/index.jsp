@@ -3,7 +3,7 @@
 <head>
 <link href="css/vittoriostyle.css" rel="stylesheet">
 
-<title>Login SAMPLE</title>
+<title>Login MashUp</title>
 </head>
 <body>
 
