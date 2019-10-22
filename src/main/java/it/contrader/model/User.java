@@ -1,4 +1,4 @@
-package it.contrader.model;
+ package it.contrader.model;
 /**
  * Per dettagli vedi guida sez 4 Model
  */
