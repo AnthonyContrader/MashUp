@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="header">SAMPLE Project
+<div class="header">MASHUP Project
 </div>
 
 

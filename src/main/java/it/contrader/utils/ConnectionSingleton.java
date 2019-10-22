@@ -18,10 +18,10 @@ public class ConnectionSingleton {
         if (connection == null) {
             try {
                 String vendor="mysql";
-                String driver="com.mysql.cj.jdbc.Driver";
+                String driver="com.mysql.jdbc.Driver";
                 String host="127.0.0.1";
                 String port="3306";
-                String dbName="sampledb";
+                String dbName="jsp";
                 String username="root";
                 String password ="root";
                 String jdbcAdditionalParams="useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
