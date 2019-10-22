@@ -42,4 +42,12 @@
     <servlet-name>AlbumServlet</servlet-name>
     <url-pattern>/AlbumServlet</url-pattern>
   </servlet-mapping>  
+   <servlet>
+<servlet-name>PlaylistServlet</servlet-name>
+<servlet-class>it.contrader.servlets.PlaylistServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>PlaylistServlet</servlet-name>
+<url-pattern>/PlaylistServlet</url-pattern>
+</servlet-mapping>
 </web-app>
