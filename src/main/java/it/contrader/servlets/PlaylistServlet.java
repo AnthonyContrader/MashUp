@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import it.contrader.dto.PlaylistDTO;
-import it.contrader.dto.UserDTO;
+//import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.PlaylistService;
 
@@ -40,7 +40,10 @@ public class PlaylistServlet extends HttpServlet {
 	
 		case "PLAYLISTLIST":
 			updateList(request);
-			getServletContext().getRequestDispatcher("/playlist/playlistmanager.jsp").forward(request, response);
+			if (request.getParameter("type").equals("user")) {
+			getServletContext().getRequestDispatcher("/playlist/userplaylistmanager.jsp").forward(request, response);
+			} else getServletContext().getRequestDispatcher("/playlist/playlistmanager.jsp").forward(request, response);
+			
 			break;
 		
 		case "READ":
