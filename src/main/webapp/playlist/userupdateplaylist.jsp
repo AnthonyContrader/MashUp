@@ -5,13 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Edit Playlist</title>
+<title>Playlist User Update</title>
 </head>
 <body>
 <%@include file="../css/header.jsp" %>
 <div class="navbar">
-	<a href="homeadmin.jsp">Home</a>
-	<a class="active" href="PlaylistServlet?type=gfg&mode=playlistlist">Playlists</a>
+	<a href="homeuser.jsp">Home</a>
+	<a class="active" href="PlaylistServlet?type=user&mode=playlistlist">Playlists</a>
 	<a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -19,7 +19,7 @@
 
 <%PlaylistDTO p = (PlaylistDTO) request.getAttribute("dto");%>
 
-<form id="floatleft" action="PlaylistServlet?type=grdgf&mode=update&id=<%=p.getId()%>" method="post">
+<form id="floatleft" action="PlaylistServlet?type=user&mode=update&id=<%=p.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>

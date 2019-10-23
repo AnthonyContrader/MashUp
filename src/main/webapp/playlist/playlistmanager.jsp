@@ -14,10 +14,10 @@
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a href="UserServlet?mode=userlist">Users</a>
-  <a href="TrackServlet?mode=tracklist">Tracks</a>
-  <a href="AlbumServlet?mode=albumlist">Albums</a>
-  <a href="PlaylistServlet?mode=playlistlist">Playlists</a>
+  <a href="UserServlet?type=adg&mode=userlist">Users</a>
+  <a href="TrackServlet?type=adg&mode=tracklist">Tracks</a>
+  <a href="AlbumServlet?type=adg&mode=albumlist">Albums</a>
+  <a href="PlaylistServlet?type=adg&mode=playlistlist">Playlists</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -38,13 +38,13 @@
 			for (PlaylistDTO p : list) {
 		%>
 		<tr>
-			<td><a href=PlaylistServlet?mode=read&id=<%=p.getId()%>>
+			<td><a href=PlaylistServlet?type=adg&mode=read&id=<%=p.getId()%>>
 					<%=p.getName()%>
 			</a></td>
 			<td><%=p.getGenre()%></td>
-			<td><a href=PlaylistServlet?mode=read&update=true&id=<%=p.getId()%>>Edit</a>
+			<td><a href=PlaylistServlet?type=adg&mode=read&update=true&id=<%=p.getId()%>>Edit</a>
 			</td>
-			<td><a href=PlaylistServlet?mode=delete&id=<%=p.getId()%>>Delete</a>
+			<td><a href=PlaylistServlet?type=adg&mode=delete&id=<%=p.getId()%>>Delete</a>
 			</td>
 
 		</tr>
@@ -52,7 +52,7 @@
 			}
 		%>
 	</table>
-	<form id="floatright" action="PlaylistServlet?mode=insert" method="post">
+	<form id="floatright" action="PlaylistServlet?type=adg&mode=insert" method="post">
   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>

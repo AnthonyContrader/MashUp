@@ -42,8 +42,10 @@ public class PlaylistServlet extends HttpServlet {
 			updateList(request);
 			if (request.getParameter("type").equals("user")) {
 			getServletContext().getRequestDispatcher("/playlist/userplaylistmanager.jsp").forward(request, response);
-			} else getServletContext().getRequestDispatcher("/playlist/playlistmanager.jsp").forward(request, response);
-			
+			} else if(request.getParameter("type").equals("admin")) {
+				getServletContext().getRequestDispatcher("/playlist/playlistmanager.jsp").forward(request, response);
+
+			}			
 			break;
 		
 		case "READ":
@@ -52,12 +54,19 @@ public class PlaylistServlet extends HttpServlet {
 			request.setAttribute("dto", dto);
 		
 			if (request.getParameter ("update") == null) {
-				getServletContext().getRequestDispatcher("/playlist/readplaylist.jsp").forward(request, response);
+				
+				if (request.getParameter("type").equals("user"))
+					getServletContext().getRequestDispatcher("/playlist/userreadplaylist.jsp").forward(request, response);
+				else 
+					getServletContext().getRequestDispatcher("/playlist/readplaylist.jsp").forward(request, response);
 			
 			}
 		
-			else getServletContext().getRequestDispatcher("/playlist/updateplaylist.jsp").forward(request, response);
-		
+			else
+				if(request.getParameter("type").equals("user")) {
+					getServletContext().getRequestDispatcher("/playlist/userupdateplaylist.jsp").forward(request, response);
+				} else
+					getServletContext().getRequestDispatcher("/playlist/updateplaylist.jsp").forward(request, response);
 			break;
 		
 		case "INSERT":
@@ -67,6 +76,10 @@ public class PlaylistServlet extends HttpServlet {
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
+			if(request.getParameter("type").equals("user")) {
+				getServletContext().getRequestDispatcher("/playlist/userplaylistmanager.jsp").forward(request, response);
+			}  else
+				
 			getServletContext().getRequestDispatcher("/playlist/playlistmanager.jsp").forward(request, response);
 		
 			break;
@@ -78,6 +91,9 @@ public class PlaylistServlet extends HttpServlet {
 			dto = new PlaylistDTO (id,name, genre);
 			ans = service.update(dto);
 			updateList(request);
+			if(request.getParameter("type").equals("user")) {
+				getServletContext().getRequestDispatcher("/playlist/userplaylistmanager.jsp").forward(request, response);
+			} else 
 			getServletContext().getRequestDispatcher("/playlist/playlistmanager.jsp").forward(request, response);
 			break;
 			
@@ -87,6 +103,9 @@ public class PlaylistServlet extends HttpServlet {
 			ans = service.delete(id);
 			request.setAttribute("ans", ans);
 			updateList(request);
+			if(request.getParameter("type").equals("user")) {
+				getServletContext().getRequestDispatcher("/playlist/userplaylistmanager.jsp").forward(request, response);
+			} else 
 			getServletContext().getRequestDispatcher("/playlist/playlistmanager.jsp").forward(request, response);
 			break;
 		

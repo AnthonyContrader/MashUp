@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Playlist Manager</title>
+<title>Playlist User Manager</title>
 </head>
 
 <body>
@@ -30,13 +30,13 @@
 			for (PlaylistDTO p : list) {
 		%>
 		<tr>
-			<td><a href=PlaylistServlet?mode=read&id=<%=p.getId()%>>
+			<td><a href=PlaylistServlet?type=user&mode=read&id=<%=p.getId()%>>
 					<%=p.getName()%>
 			</a></td>
 			<td><%=p.getGenre()%></td>
-			<td><a href=PlaylistServlet?mode=read&update=true&id=<%=p.getId()%>>Edit</a>
+			<td><a href=PlaylistServlet?type=user&mode=read&update=true&id=<%=p.getId()%>>Edit</a>
 			</td>
-			<td><a href=PlaylistServlet?mode=delete&id=<%=p.getId()%>>Delete</a>
+			<td><a href=PlaylistServlet?type=user&mode=delete&id=<%=p.getId()%>>Delete</a>
 			</td>
 
 		</tr>
@@ -44,7 +44,7 @@
 			}
 		%>
 	</table>
-	<form id="floatright" action="PlaylistServlet?mode=insert" method="post">
+	<form id="floatright" action="PlaylistServlet?type=user&mode=insert" method="post">
   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>
