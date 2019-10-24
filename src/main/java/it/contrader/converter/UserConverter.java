@@ -21,9 +21,13 @@ public class UserConverter  implements Converter<User, UserDTO> {
 	 */
 	@Override
 	public UserDTO toDTO(User user) {
+		if(user == null) {
+			return null;}
+		else {
 		UserDTO userDTO = new UserDTO(user.getId(), user.getUsername(), user.getPassword(), user.getUsertype());
-		return userDTO;
+		return userDTO;}
 	}
+	
 
 	/**
 	 * Crea un oggetto di tipo User e lo riempie con i campi del parametro user di tipo UserDTO.
