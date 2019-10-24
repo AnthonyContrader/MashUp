@@ -1,35 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.UserDTO"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.TrackDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Read User</title>
+<title>Read User Track</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a href="homeadmin.jsp">Home</a>
-  <a href="UserServlet?type=admin&mode=userlist">Users</a>
+  <a href="homeuser.jsp">Home</a>
+  <a href="TrackServlet?type=user&mode=userlist">Tracks</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
 
 <div class="main">
-<%UserDTO u = (UserDTO) request.getAttribute("dto");%>
+<%TrackDTO u = (TrackDTO) request.getAttribute("dto");%>
 
 
 <table>
 	<tr> 
-		<th>Username</th>
-		<th>Password</th>
-		<th>Usertype</th>
+		<th>Title</th>
+		<th>Author</th>
+	
 	</tr>
 	<tr>
-		<td><%=u.getUsername()%></td>
-		<td> <%=u.getPassword()%></td>
-		<td> <%=u.getUsertype()%></td>
+		<td><%=u.getTitle()%></td>
+		<td> <%=u.getAuthor()%></td>
+		
 	</tr>	
 </table>
 

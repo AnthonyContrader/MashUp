@@ -11,7 +11,7 @@
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
   <a href="homeadmin.jsp">Home</a>
-  <a class="active" href="UserServlet?mode=userlist">Users</a>
+  <a class="active" href="UserServlet?type=admin&mode=userlist">Users</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -20,7 +20,7 @@
 <%UserDTO u = (UserDTO) request.getAttribute("dto");%>
 
 
-<form id="floatleft" action="UserServlet?mode=update&id=<%=u.getId()%>" method="post">
+<form id="floatleft" action="UserServlet?type=admin&mode=update&id=<%=u.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="user">Username</label>

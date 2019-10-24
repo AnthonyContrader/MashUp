@@ -13,10 +13,10 @@
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a href="UserServlet?mode=userlist">Users</a>
-  <a href="TrackServlet?mode=tracklist">Tracks</a>
-  <a href="AlbumServlet?mode=albumlist">Albums</a>
-  <a href="PlaylistServlet?mode=playlistlist">Playlists</a>
+  <a href="UserServlet?type=admin&mode=userlist">Users</a>
+  <a href="TrackServlet?type=admin&mode=tracklist">Tracks</a>
+  <a href="AlbumServlet?type=admin&mode=albumlist">Albums</a>
+  <a href="PlaylistServlet?type=admin&mode=playlistlist">Playlists</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -38,14 +38,14 @@
 			for (TrackDTO t : list) {
 		%>
 		<tr>
-			<td><a href=TrackServlet?mode=read&id=<%=t.getId()%>>
+			<td><a href=TrackServlet?type=admin&mode=read&id=<%=t.getId()%>>
 					<%=t.getTitle()%>
 			</a></td>
 			<td><%=t.getAuthor()%></td>
 		
-			<td><a href=TrackServlet?mode=read&update=true&id=<%=t.getId()%>>Edit</a>
+			<td><a href=TrackServlet?type=admin&mode=read&update=true&id=<%=t.getId()%>>Edit</a>
 			</td>
-			<td><a href=TrackServlet?mode=delete&id=<%=t.getId()%>>Delete</a>
+			<td><a href=TrackServlet?type=admin&mode=delete&id=<%=t.getId()%>>Delete</a>
 			</td>
 
 		</tr>
@@ -56,7 +56,7 @@
 
 
 
-<form id="floatright" action="TrackServlet?mode=insert" method="post">
+<form id="floatright" action="TrackServlet?type=admin&mode=insert" method="post">
   <div class="row">
     <div class="col-25">
       <label for="tit">Title</label>

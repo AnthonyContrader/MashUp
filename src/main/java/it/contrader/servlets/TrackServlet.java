@@ -49,8 +49,9 @@ public class TrackServlet extends HttpServlet {
 	
 	case "TRACKLIST":
 		updateList(request);
-		getServletContext().getRequestDispatcher("/track/trackmanager.jsp").forward(request, response);
-		
+		if(request.getParameter("type").equals("user"))
+		getServletContext().getRequestDispatcher("/track/usertrackmanager.jsp").forward(request, response);
+		else getServletContext().getRequestDispatcher("/track/trackmanager.jsp").forward(request, response);
 		break;
 	
 	case "READ":
@@ -59,12 +60,13 @@ public class TrackServlet extends HttpServlet {
 		request.setAttribute("dto",dto);
 		
 		if (request.getParameter("update")==null) {
-			getServletContext().getRequestDispatcher("/track/readtrack.jsp").forward(request, response); 
-	
+			if(request.getParameter("type").equals("user"))
+			getServletContext().getRequestDispatcher("/track/userreadtrack.jsp").forward(request, response); 
+			else getServletContext().getRequestDispatcher("/track/readtrack.jsp").forward(request, response); 
 		}
 	
-	else getServletContext().getRequestDispatcher("/track/updatetrack.jsp").forward(request, response);
-	
+		else getServletContext().getRequestDispatcher("/track/updatetrack.jsp").forward(request, response);
+			
 	break;
 	
 	case "INSERT":
