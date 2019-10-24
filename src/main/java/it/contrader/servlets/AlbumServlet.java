@@ -38,6 +38,9 @@ public class AlbumServlet extends HttpServlet{
 		
 		case "ALBUMLIST":
 			updateList(request);
+			if(request.getParameter("type").equals("user"))
+			getServletContext().getRequestDispatcher("/album/useralbummanager.jsp").forward(request, response);
+			else
 			getServletContext().getRequestDispatcher("/album/albummanager.jsp").forward(request, response);
 	        break;
 	        
@@ -48,8 +51,10 @@ public class AlbumServlet extends HttpServlet{
 			request.setAttribute("dto", dto);
 			
 			if(request.getParameter("update") == null) {
-				getServletContext().getRequestDispatcher("/album/readalbum.jsp").forward(request, response);
-				
+				if(request.getParameter("type").equals("user"))
+				getServletContext().getRequestDispatcher("/album/userreadalbum.jsp").forward(request, response);
+				else
+					getServletContext().getRequestDispatcher("/album/readalbum.jsp").forward(request, response);
 			}
 			else
 				getServletContext().getRequestDispatcher("/album/updatealbum.jsp").forward(request, response);

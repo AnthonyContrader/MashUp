@@ -5,13 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Read Album</title>
+<title>Read User Album</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a href="homeadmin.jsp">Home</a>
-  <a class="active"  href="AlbumServlet?type=ds&mode=albumlist">Albums</a>
+  <a href="homeuser.jsp">Home</a>
+  <a class="active"  href="AlbumServlet?type=user&mode=albumlist">Albums</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>

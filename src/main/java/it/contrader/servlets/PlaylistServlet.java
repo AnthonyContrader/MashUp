@@ -42,10 +42,8 @@ public class PlaylistServlet extends HttpServlet {
 			updateList(request);
 			if (request.getParameter("type").equals("user")) {
 			getServletContext().getRequestDispatcher("/playlist/userplaylistmanager.jsp").forward(request, response);
-			} else if(request.getParameter("type").equals("admin")) {
+			} else 
 				getServletContext().getRequestDispatcher("/playlist/playlistmanager.jsp").forward(request, response);
-
-			}			
 			break;
 		
 		case "READ":
