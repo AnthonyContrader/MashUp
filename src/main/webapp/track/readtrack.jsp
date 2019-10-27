@@ -47,6 +47,9 @@
 <br>
 <br>
 <br>
+<form id="floatleft" action="TrackServlet?type=admin&mode=tracklist" method="post">
+<button onclick="goBack()">Back</button>
+</form>
 
 
 </div>

@@ -17,7 +17,7 @@
   <a href="UserServlet?type=adg&mode=userlist">Users</a>
   <a href="TrackServlet?type=adg&mode=tracklist">Tracks</a>
   <a href="AlbumServlet?type=adg&mode=albumlist">Albums</a>
-  <a href="PlaylistServlet?type=adg&mode=playlistlist">Playlists</a>
+  <a class="active" href="PlaylistServlet?type=adg&mode=playlistlist">Playlists</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -38,13 +38,13 @@
 			for (PlaylistDTO p : list) {
 		%>
 		<tr>
-			<td><a href=PlaylistServlet?type=adg&mode=read&id=<%=p.getId()%>>
+			<td><a href=PlaylistServlet?type=admin&mode=read&id=<%=p.getId()%>>
 					<%=p.getName()%>
 			</a></td>
 			<td><%=p.getGenre()%></td>
-			<td><a href=PlaylistServlet?type=adg&mode=read&update=true&id=<%=p.getId()%>>Edit</a>
+			<td><a href=PlaylistServlet?type=admin&mode=read&update=true&id=<%=p.getId()%>>Edit</a>
 			</td>
-			<td><a href=PlaylistServlet?type=adg&mode=delete&id=<%=p.getId()%>>Delete</a>
+			<td><a href=PlaylistServlet?type=admin&mode=delete&id=<%=p.getId()%>>Delete</a>
 			</td>
 
 		</tr>

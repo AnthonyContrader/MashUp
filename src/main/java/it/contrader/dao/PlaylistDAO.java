@@ -46,7 +46,7 @@ public class PlaylistDAO implements DAO<Playlist> {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement (QUERY_CREATE);
 			preparedStatement.setString(1, playlistToInsert.getName());
-			preparedStatement.setString(2, playlistToInsert.getName());
+			preparedStatement.setString(2, playlistToInsert.getGenre());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {

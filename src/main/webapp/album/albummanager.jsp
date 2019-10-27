@@ -15,7 +15,7 @@
   <a  href="homeadmin.jsp">Home</a>
   <a href="UserServlet?type=sa&mode=userlist">Users</a>
   <a href="TrackServlet?type=sa&mode=tracklist">Tracks</a>
-  <a href="AlbumServlet?type=sa&mode=albumlist">Albums</a>
+  <a class="active" href="AlbumServlet?type=sa&mode=albumlist">Albums</a>
   <a href="PlaylistServlet?type=sa&mode=playlistlist">Playlists</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>

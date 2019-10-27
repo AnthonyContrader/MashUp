@@ -11,7 +11,7 @@
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
   <a href="homeuser.jsp">Home</a>
-  <a href="TrackServlet?type=user&mode=userlist">Tracks</a>
+  <a class="active" href="TrackServlet?type=user&mode=tracklist">Tracks</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -33,6 +33,7 @@
 	</tr>	
 </table>
 
+
 <br>
 <br>
 <br>
@@ -47,6 +48,9 @@
 <br>
 <br>
 <br>
+<form id="floatleft" action="TrackServlet?type=user&mode=tracklist" method="post">
+<button onclick="goBack()">Back</button>
+</form>
 
 
 </div>

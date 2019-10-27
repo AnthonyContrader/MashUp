@@ -32,6 +32,10 @@
 		<td> <%=a.getYear()%></td>
 	</tr>	
 </table>
+<form id="floatleft" action="AlbumServlet?type=user&mode=albumlist" method="post">
+<button onclick="goBack()">Back</button>
+</form>
+
 
 <br>
 <br>

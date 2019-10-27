@@ -8,16 +8,14 @@
 <title>Read User</title>
 </head>
 <body>
+
 <%@ include file="../css/header.jsp" %>
-<div class="navbar">
-  <a href="homeadmin.jsp">Home</a>
-  <a class="active" href="UserServlet?type=admin&mode=userlist">Users</a>
-  <a href="LogoutServlet" id="logout">Logout</a>
-</div>
+<%@ include file="../usernavbar.jsp" %>
+
 <br>
 
 <div class="main">
-<%UserDTO u = (UserDTO) request.getAttribute("dto");%>
+<%UserDTO u = (UserDTO) session.getAttribute("user");%>
 
 
 <table>
@@ -47,6 +45,9 @@
 <br>
 <br>
 <br>
+<form id="floatleft" action="UserServlet?type=user&mode=userlist" method="post">
+<button onclick="goBack()">Back</button>
+</form>
 
 
 </div>

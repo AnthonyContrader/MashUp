@@ -36,11 +36,13 @@
 			<td><%=a.getAuthor()%></td>
 			<td><%=a.getYear()%></td>
 			
+			
 		</tr>
 		<%
 			}
 		%>
-	</table>
+		
+</table>
 
 
 </div>

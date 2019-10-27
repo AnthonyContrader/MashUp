@@ -14,7 +14,7 @@
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
   <a href="UserServlet?type=admin&mode=userlist">Users</a>
-  <a href="TrackServlet?type=admin&mode=tracklist">Tracks</a>
+  <a class="active" href="TrackServlet?type=admin&mode=tracklist">Tracks</a>
   <a href="AlbumServlet?type=admin&mode=albumlist">Albums</a>
   <a href="PlaylistServlet?type=admin&mode=playlistlist">Playlists</a>
   <a href="LogoutServlet" id="logout">Logout</a>

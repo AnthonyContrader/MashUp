@@ -5,13 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Edit User</title>
+<title>Edit r User</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a href="homeadmin.jsp">Home</a>
-  <a href="UserServlet?type=admin&mode=userlist">Users</a>
+  <a href="homeuser.jsp">Home</a>
+  <a href="UserServlet?type=user&mode=userlist">Users</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -20,7 +20,7 @@
 <%UserDTO u = (UserDTO) request.getAttribute("dto");%>
 
 
-<form id="floatleft" action="UserServlet?type=admin&mode=update&id=<%=u.getId()%>" method="post">
+<form id="floatleft" action="UserServlet?type=user&mode=update&id=<%=u.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="user">Username</label>
@@ -44,7 +44,6 @@
     </div>
    		 <div class="col-75">
  			<select id="type" name="usertype">
-  				<option value="ADMIN" <%if(u.getUsertype().equals("ADMIN")) {%>selected<%}%>>ADMIN</option>
   				<option value="USER" <%if(u.getUsertype().equals("USER")) {%>selected<%}%>>USER</option>
 			</select>
     	</div>

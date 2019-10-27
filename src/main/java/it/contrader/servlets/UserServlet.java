@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.UserService;
+import javax.servlet.http.HttpSession;
 
 /*
  * Per dettagli vedi Guida sez Servlet
@@ -28,6 +29,8 @@ public class UserServlet extends HttpServlet {
 		request.setAttribute("list", listDTO);
 	}
 
+
+	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Service<UserDTO> service = new UserService();
@@ -40,7 +43,9 @@ public class UserServlet extends HttpServlet {
 
 		case "USERLIST":
 			updateList(request);
-			getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
+			if(request.getParameter("type").equals("user"))
+			getServletContext().getRequestDispatcher("/user/restrictedusermanager.jsp").forward(request, response);
+			else getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
 			break;
 
 		case "READ":
@@ -48,10 +53,16 @@ public class UserServlet extends HttpServlet {
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
 			
-			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/user/readuser.jsp").forward(request, response);
+			
+			if (request.getParameter("update") == null)
+				if(request.getParameter("type").equals("user"))
+				getServletContext().getRequestDispatcher("/user/restrictedreaduser.jsp").forward(request, response);
+			
+				else getServletContext().getRequestDispatcher("/user/readuser.jsp").forward(request, response);
 				
-			}
+			else if (request.getParameter("type").equals("user"))
+				
+			getServletContext().getRequestDispatcher("/user/restrictedupdateuser.jsp").forward(request, response);
 			
 			else getServletContext().getRequestDispatcher("/user/updateuser.jsp").forward(request, response);
 			
@@ -75,13 +86,27 @@ public class UserServlet extends HttpServlet {
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = new UserDTO (id,username, password, usertype);
 			ans = service.update(dto);
-			updateList(request);
-			getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
+			
+			if (request.getParameter("type").equals("user")) {
+			final HttpSession session = request.getSession();
+			session.setAttribute("user", dto);
+			getServletContext().getRequestDispatcher("/user/restrictedusermanager.jsp").forward(request, response);
+			}
+			
+			
+			
+			else {
+				updateList(request);
+				getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
+			}
 			break;
 
 		case "DELETE":
 			id = Integer.parseInt(request.getParameter("id"));
 			ans = service.delete(id);
+			if(request.getParameter("type").equals("user"))
+				service(request, response);
+			
 			request.setAttribute("ans", ans);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);

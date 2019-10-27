@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.UserDTO"%>
+	import="it.contrader.dto.UserDTO"
+	 %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +45,6 @@
 			<td><%=u.getPassword()%></td>
 			<td><%=u.getUsertype()%></td>
 			<td><a href=UserServlet?type=admin&mode=read&update=true&id=<%=u.getId()%>>Edit</a>
-			</td>
 			<td><a href=UserServlet?type=admin&mode=delete&id=<%=u.getId()%>>Delete</a>
 			</td>
 

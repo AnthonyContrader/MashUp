@@ -8,7 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.User;
-
+import java.math.BigInteger;
+import java.security.*;
 /**
  * 
  * @author Vittorio
@@ -20,7 +21,13 @@ public class LoginDAO {
 	private final String QUERY_LOGIN = "SELECT * FROM user WHERE username = ? AND password = ?";
 
 	
-	public User login (String username, String password) {
+	public User login (String username, String password) throws NoSuchAlgorithmException {
+		
+		MessageDigest md5 = MessageDigest.getInstance("MD5");
+		md5.update(password.getBytes());
+		BigInteger Hash = new BigInteger(1,md5.digest());
+		password = Hash.toString(16);
+		
 
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
@@ -38,7 +45,6 @@ public class LoginDAO {
 				String usertype = resultSet.getString("usertype");
 				int id = resultSet.getInt("id");
 				User user = new User(id, username, password, usertype);
-				
 				return user;
 			}
 

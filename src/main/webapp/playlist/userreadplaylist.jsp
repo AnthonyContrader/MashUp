@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO8859-1"
-	pageEncoding="ISO8859-1" import="it.contrader.dto.PlaylistDTO"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" import="it.contrader.dto.PlaylistDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +28,8 @@
 		<td><%=p.getName()%></td>
 		<td><%=p.getGenre()%></td>
 	</tr>
+	
 </table>
-
 <br>
 <br>
 <br>
@@ -44,7 +44,9 @@
 <br>
 <br>
 <br>
-
+	<form id="floatleft" action="PlaylistServlet?type=user&mode=playlistlist" method="post">
+<button onclick="goBack()">Back</button>
+</form>
 
 </div>
 

@@ -1,6 +1,8 @@
 package it.contrader.servlets;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,10 +32,15 @@ public class LoginServlet extends HttpServlet {
 		LoginService service = new LoginService();
 
 		if (request != null) {
+			
 			String username = request.getParameter("username").toString();
 			String password = request.getParameter("password").toString();
 			//come nei vecchi controller, invoca il service
-			UserDTO dto = service.login(username, password);
+			UserDTO dto;
+			try {
+				dto = service.login(username, password);
+			
+			
 			if (dto != null)
 				//se il login ha funzionato, salva l'utente nella sessione
 				session.setAttribute("user", dto);
@@ -57,6 +64,10 @@ public class LoginServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 				break;
 			}
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	}
 	}
 }

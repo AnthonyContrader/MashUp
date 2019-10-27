@@ -11,7 +11,7 @@
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
   <a href="homeadmin.jsp">Home</a>
-  <a class="active" href="TrackServlet?mode=Tracklist">Tracks</a>
+  <a class="active" href="TrackServlet?type=admin&mode=Tracklist">Tracks</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -40,6 +40,7 @@
   </div>
   
       <button type="submit" >Edit</button>
+      <button onclick="goBack()">Back</button>
 </form>
 
 	

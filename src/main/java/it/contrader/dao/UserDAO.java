@@ -1,6 +1,10 @@
 package it.contrader.dao;
 
 import java.sql.*;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,13 +54,23 @@ public class UserDAO implements DAO<User> {
 	public boolean insert(User userToInsert) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
+			String password = userToInsert.getPassword();
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+			
+			StringBuilder sb = new StringBuilder();
+			for (byte b : hashInBytes) {
+				sb.append(String.format("%02x", b));
+			}
+			
+			String pass = sb.toString();
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, userToInsert.getUsername());
-			preparedStatement.setString(2, userToInsert.getPassword());
+			preparedStatement.setString(2, pass);
 			preparedStatement.setString(3, userToInsert.getUsertype());
 			preparedStatement.execute();
 			return true;
-		} catch (SQLException e) {
+		} catch (SQLException | NoSuchAlgorithmException e) {
 			return false;
 		}
 
@@ -96,14 +110,24 @@ public class UserDAO implements DAO<User> {
 		User userRead = read(userToUpdate.getId());
 		if (!userRead.equals(userToUpdate)) {
 			try {
+				String password = userToUpdate.getPassword();
+				MessageDigest md5 = MessageDigest.getInstance("MD5");
+				md5.update(password.getBytes());
+				BigInteger Hash = new BigInteger(1, md5.digest());
+				password = Hash.toString(16);
+				
 				// Fill the userToUpdate object
 				if (userToUpdate.getUsername() == null || userToUpdate.getUsername().equals("")) {
 					userToUpdate.setUsername(userRead.getUsername());
 				}
-
-				if (userToUpdate.getPassword() == null || userToUpdate.getPassword().equals("")) {
-					userToUpdate.setPassword(userRead.getPassword());
+				
+				while(password ==  null || password.equals("")) {
+					System.out.println("Password Errata");
 				}
+				
+				userToUpdate.setPassword(userRead.getPassword());
+				
+				
 
 				if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
 					userToUpdate.setUsertype(userRead.getUsertype());
@@ -112,7 +136,7 @@ public class UserDAO implements DAO<User> {
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, userToUpdate.getUsername());
-				preparedStatement.setString(2, userToUpdate.getPassword());
+				preparedStatement.setString(2, password);
 				preparedStatement.setString(3, userToUpdate.getUsertype());
 				preparedStatement.setInt(4, userToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
@@ -121,7 +145,7 @@ public class UserDAO implements DAO<User> {
 				else
 					return false;
 
-			} catch (SQLException e) {
+			} catch (SQLException | NoSuchAlgorithmException e) {
 				return false;
 			}
 		}

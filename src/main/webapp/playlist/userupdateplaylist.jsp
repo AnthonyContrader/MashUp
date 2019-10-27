@@ -38,6 +38,8 @@
     </div>
   </div>
       <button type="submit" >Edit</button>
+      <button onclick="goBack()">Back</button>
+     
 </form>
 
 

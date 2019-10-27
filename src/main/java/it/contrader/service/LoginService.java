@@ -1,5 +1,7 @@
 package it.contrader.service;
 
+import java.security.NoSuchAlgorithmException;
+
 import it.contrader.converter.UserConverter;
 import it.contrader.dao.LoginDAO;
 import it.contrader.dto.UserDTO;
@@ -20,8 +22,9 @@ public class LoginService {
 	/**
 	 * Chiama il metodo del DAO e ottiene una stringa (lo usertype)
 	 * @return 
+	 * @throws NoSuchAlgorithmException 
 	 */
-	public UserDTO login(String username, String password) {
+	public UserDTO login(String username, String password) throws NoSuchAlgorithmException {
 		return converter.toDTO(dao.login(username, password));
 	}
 }
