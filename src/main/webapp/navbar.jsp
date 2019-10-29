@@ -10,6 +10,8 @@
 		<a href="/homeadmin.jsp">Home</a> 
 		<a href=/user/getall>Users</a>
 		<a href="/album/getall">Albums</a>
+		<a href="/track/getall">Tracks</a>
+		<a href="/playlist/getall">Playlists</a>
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 
