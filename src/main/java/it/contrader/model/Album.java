@@ -1,9 +1,13 @@
 package it.contrader.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +29,10 @@ public class Album {
 	private String author;
 	
 	private String years;
+	
+	//relazione tra album e traccia
+	@OneToMany(mappedBy = "album", cascade = CascadeType.MERGE)
+	private List <Track> tracks;
+	
 	
 }

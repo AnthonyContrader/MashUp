@@ -1,5 +1,7 @@
 package it.contrader.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.repository.CrudRepository;
@@ -11,6 +13,6 @@ import it.contrader.model.Track;
 @Transactional
 public interface TrackRepository extends CrudRepository<Track, Long> {
 
-	Track findByTitle(String title);
+	public List<Track> findByAlbum_id(long id);
 
 }

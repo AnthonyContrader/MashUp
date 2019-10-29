@@ -1,5 +1,6 @@
 package it.contrader.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,5 +36,13 @@ public class Track {
 	/*@ManyToOne
 	@JoinColumn(name = "idplaylist", referencedColumnName = "id")
 	private Playlist playlist;*/
+	
+	
+	// relazione tra traccia e album
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "idAlbum", referencedColumnName = "id")
+	private Album album;
+	
+	
 
 }

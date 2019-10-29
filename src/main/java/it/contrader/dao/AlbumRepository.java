@@ -10,5 +10,6 @@ import it.contrader.model.Album;
 @Transactional
 public interface AlbumRepository extends CrudRepository<Album, Long>{
 	
+
 	
 }
