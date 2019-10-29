@@ -24,7 +24,7 @@ public class UserController {
 	public String login(HttpServletRequest request, @RequestParam(value = "username", required = true) String username,
 			@RequestParam(value = "password", required = true) String password) {
 
-		UserDTO userDTO = service.findByUsernameAndPassword(username, password);
+		UserDTO userDTO = service.getByUsernameAndPassword(username, password);
 		request.getSession().setAttribute("user", userDTO);
 
 		switch (userDTO.getUsertype()) {
