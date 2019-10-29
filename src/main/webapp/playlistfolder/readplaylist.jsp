@@ -17,6 +17,7 @@
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
 			href="/playlist/getall">Playlist</a> <a href="/user/logout" id="logout">Logout</a>
 	</div>
+<br>
 	<div class="main">
 		<%
 			PlaylistDTO p = (PlaylistDTO) request.getSession().getAttribute("dto");

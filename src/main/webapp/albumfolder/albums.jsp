@@ -12,11 +12,9 @@
 </head>
 <body>
 	<%@ include file="../css/header.jsp"%>
+	<%@ include file="../navbar.jsp" %>
 
-	<div class="navbar">
-		<a href="../homeadmin.jsp">Home</a> <a class="active"
-			href="/album/getall">Albums</a> <a href="/user/logout" id="logout">Logout</a>
-	</div>
+	
 	<div class="main">
 		<%
 			List<AlbumDTO> list = (List<AlbumDTO>) request.getSession().getAttribute("list");

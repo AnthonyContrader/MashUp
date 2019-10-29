@@ -17,7 +17,7 @@
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
 			href="/track/getall">Tracks</a> <a href="/user/logout" id="logout">Logout</a>
 	</div>
-
+<br>
 	<div class="main">
 		<%
 			TrackDTO t = (TrackDTO) request.getSession().getAttribute("dto");

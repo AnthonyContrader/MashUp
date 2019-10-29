@@ -12,6 +12,7 @@
 </head>
 <body>
 	<%@ include file="../css/header.jsp"%>
+	<%@ include file="../navbar.jsp" %>
 
 	
 	<div class="main">
