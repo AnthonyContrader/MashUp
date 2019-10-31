@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.contrader.dto.AlbumDTO;
+
 import it.contrader.dto.TrackDTO;
-import it.contrader.model.Album;
 import it.contrader.service.TrackService;
 import it.contrader.service.AlbumService;
 
@@ -31,6 +30,7 @@ public class TrackController {
 		request.getSession().setAttribute("albumlist", albumService.getAll());
 		return "trackfolder/tracks";
 	}
+	
 	
 	@GetMapping("/gettracks")
 	public String getTracks (HttpServletRequest request, @RequestParam("id") Long id) {

@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.PlaylistDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.PlaylistService;
+import it.contrader.service.UserService;
 
 @Controller
 @RequestMapping("playlist")
@@ -18,7 +20,8 @@ public class PlaylistController {
 
 	@Autowired
 	private PlaylistService service;
-
+	@Autowired
+	private UserService userService;
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
@@ -27,6 +30,15 @@ public class PlaylistController {
 		 */
 		setAll(request);
 		return "playlistfolder/playlists";
+	}
+	
+	@GetMapping("/getguestplaylist")
+	public String getguestplaylist(HttpServletRequest request) {
+		UserDTO u = (UserDTO) request.getSession().getAttribute("user");
+		request.getSession().setAttribute("userplaylists", service.getAllByUser_id(u.getId()));
+		return "playlistfolder/guest_playlists";
+		
+		
 	}
 
 	@GetMapping("/delete")
@@ -58,13 +70,15 @@ public class PlaylistController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("name") String name,
-			@RequestParam("genre") String genre) {
+			@RequestParam("genre") String genre, @RequestParam("iduser") Long iduser) {
 		PlaylistDTO dto = new PlaylistDTO();
 		dto.setName(name);
 		dto.setGenre(genre);
+		dto.setUserDTO(userService.read(iduser));   
 		service.insert(dto);
-		setAll(request);
-		return "playlistfolder/playlists";
+		UserDTO u = (UserDTO) request.getSession().getAttribute("user");
+		request.getSession().setAttribute("userplaylists", service.getAllByUser_id(u.getId()));		
+		return "playlistfolder/guest_playlists";
 	}
 
 	@GetMapping("/read")

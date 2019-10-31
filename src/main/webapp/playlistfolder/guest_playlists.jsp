@@ -17,7 +17,7 @@
 	
 	<div class="main">
 		<%
-			List<PlaylistDTO> list = (List<PlaylistDTO>) request.getSession().getAttribute("list");
+			List<PlaylistDTO> list = (List<PlaylistDTO>) request.getSession().getAttribute("userplaylists");
 		%>
 
 		<br>
@@ -68,6 +68,8 @@
 						placeholder="inserisci genere">
 				</div>
 			</div>
+			<%UserDTO u = (UserDTO) request.getSession().getAttribute("user");%>
+				<input type="hidden" name="iduser" id="iduser" value="<%=u.getId()%>" >	
 				<button type="submit">Insert</button>
 		</form>
 
