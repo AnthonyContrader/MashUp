@@ -36,10 +36,7 @@
 				<td><a href="/playlist/read?id=<%=p.getId()%>"> <%=p.getName()%>
 				</a></td>
 				<td><%=(p.getGenre())%></td>
-				<td><a href="/playlist/preupdate?id=<%=p.getId()%>">Edit</a></td>
-
-
-				<td><a href="/playlist/delete?id=<%=p.getId()%>">Delete</a></td>
+				<td><a href="/playlist/delete?type=admin&id=<%=p.getId()%>">Delete</a></td>
 
 			</tr>
 			<%
@@ -68,6 +65,9 @@
 						placeholder="inserisci genere">
 				</div>
 			</div>
+				<%UserDTO u = (UserDTO) request.getSession().getAttribute("user");%>
+					<input type="hidden" name="iduser" id="iduser" value="<%=u.getId()%>" >	
+					<input type="hidden" name="type" id="type" value="admin">
 				<button type="submit">Insert</button>
 		</form>
 

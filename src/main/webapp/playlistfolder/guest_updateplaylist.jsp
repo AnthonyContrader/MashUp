@@ -16,15 +16,15 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a href="/userfolder/homeadmin.jsp">Home</a>
-  <a class="active" href="/playlist/getall">Playlists</a>
+  <a href="/userfolder/homeguest.jsp">Home</a>
+  <a class="active" href="/playlist/getguestplaylist">Playlists</a>
   <a href="/user/logout" id="logout">Logout</a>
 </div>
 <br>
 <div class="main">
 
 <%PlaylistDTO p = (PlaylistDTO) request.getSession().getAttribute("dto");
-
+  UserDTO u = (UserDTO) request.getSession().getAttribute("user");
 %>
 
 
@@ -42,13 +42,12 @@
 	     <label for="author">Genre</label>
 	    </div>
 	    <div class="col-75">
-	      <input
-				type="text" id="genre" name="genre" value=<%=p.getGenre()%>> 
+	      <input type="text" id="genre" name="genre" value=<%=p.getGenre()%>> 
 	    </div>
 	  </div>
 	   <input type="hidden" name="id" value =<%=p.getId() %>>
-	    <input type="hidden" name="iduser" value =<%=p.getUserDTO()%>> 
-	     <input type="hidden" name="type" value ="admin" >
+	    <input type="hidden" name="iduser" value =<%=u.getId()%>> 
+	     <input type="hidden" name="type" value ="guest">
 	      <button type="submit" >Edit</button>
 	</form>
 

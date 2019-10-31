@@ -25,17 +25,13 @@ public class PlaylistController {
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
-		/* if (utente)
-		 else... 
-		 */
-		setAll(request);
+		refreshAll(request);
 		return "playlistfolder/playlists";
 	}
 	
 	@GetMapping("/getguestplaylist")
 	public String getguestplaylist(HttpServletRequest request) {
-		UserDTO u = (UserDTO) request.getSession().getAttribute("user");
-		request.getSession().setAttribute("userplaylists", service.getAllByUser_id(u.getId()));
+		refreshAllGuest(request);
 		return "playlistfolder/guest_playlists";
 		
 		
@@ -44,27 +40,45 @@ public class PlaylistController {
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
-		setAll(request);
-		return "playlistfolder/playlists";
+		
+		
+
+		if(request.getParameter("type").equals("guest")) {
+			refreshAllGuest(request);
+			return "playlistfolder/guest_playlists";
+			}
+		else{
+			refreshAll(request);
+			return "playlistfolder/playlists";
+			}
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
+		if(request.getParameter("type").equals("guest"))
+			return "playlistfolder/guest_updateplaylist";
+		else
 		return "playlistfolder/updateplaylist";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("genre") String genre) {
+			@RequestParam("genre") String genre, @RequestParam("iduser") Long iduser) {
 
 		PlaylistDTO dto = new PlaylistDTO();
 		dto.setId(id);
 		dto.setName(name);
 		dto.setGenre(genre);
+		dto.setUserDTO(userService.read(iduser));
 		service.update(dto);
-		setAll(request);
-		return "playlistfolder/playlists";
+		if(request.getParameter("type").equals("guest")) {
+			refreshAllGuest(request);
+			return "playlistfolder/guest_playlists";}
+		else {
+			refreshAll(request);
+			return "playlistfolder/playlists";
+		}
 
 	}
 
@@ -76,9 +90,15 @@ public class PlaylistController {
 		dto.setGenre(genre);
 		dto.setUserDTO(userService.read(iduser));   
 		service.insert(dto);
-		UserDTO u = (UserDTO) request.getSession().getAttribute("user");
-		request.getSession().setAttribute("userplaylists", service.getAllByUser_id(u.getId()));		
+		
+		if( request.getParameter("type").equals("guest")) {
+		refreshAllGuest(request);
 		return "playlistfolder/guest_playlists";
+		}
+		else {
+		refreshAll(request);
+		return "playlistfolder/playlists";
+		}
 	}
 
 	@GetMapping("/read")
@@ -93,7 +113,13 @@ public class PlaylistController {
 		return "index";
 	}
 
-	private void setAll(HttpServletRequest request) {
+	private void refreshAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
+	}
+	
+	private void refreshAllGuest (HttpServletRequest request) {
+		UserDTO u = (UserDTO) request.getSession().getAttribute("user");
+		request.getSession().setAttribute("userplaylists", service.getAllByUser_id(u.getId()));	
+		
 	}
 }
