@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="it.contrader.dto.AlbumDTO"%>
+	pageEncoding="ISO-8859-1" import="it.contrader.dto.TrackDTO"
+	import="java.util.*"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -20,10 +21,12 @@
 
 	<div class="main">
 		<%
-			AlbumDTO a = (AlbumDTO) request.getSession().getAttribute("dto");
+		List<TrackDTO> tracks = (List<TrackDTO>) request.getSession().getAttribute("tracklist");
+		
 		%>
 
 
+<%			for(TrackDTO t: tracks){ %>
 		<table>
 			<tr>
 				<th>Title</th>
@@ -31,12 +34,12 @@
 				<th>Year</th>
 			</tr>
 			<tr>
-				<td><%=a.getTitle()%></td>
-				<td><%=a.getAuthor()%></td>
-				<td><%=a.getYear()%></td>
+				<td><%=t.getTitle()%></td>
+				<td><%=t.getAuthor()%></td>
+				
 			</tr>
 		</table>
-
+<%} %>
 		<br> <br> <br> <br> <br> <br> <br>
 		<br> <br> <br> <br> <br> <br> <br>
 

@@ -22,6 +22,9 @@ public class PlaylistController {
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
+		/* if (utente)
+		 else... 
+		 */
 		setAll(request);
 		return "playlistfolder/playlists";
 	}

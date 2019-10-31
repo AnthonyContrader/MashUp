@@ -30,10 +30,10 @@ public class UserController {
 		switch (userDTO.getUsertype()) {
 
 		case ADMIN:
-			return "homeadmin";
+			return "userfolder/homeadmin";
 
 		case USER:
-			return "index";
+			return "userfolder/homeguest";
 
 		default:
 			return "index";
@@ -43,20 +43,20 @@ public class UserController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "users";
+		return "userfolder/users";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "users";
+		return "userfolder/users";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updateuser";
+		return "userfolder/updateuser";
 	}
 
 	@PostMapping("/update")
@@ -70,7 +70,7 @@ public class UserController {
 		dto.setUsertype(usertype);
 		service.update(dto);
 		setAll(request);
-		return "users";
+		return "userfolder/users";
 
 	}
 
@@ -83,13 +83,13 @@ public class UserController {
 		dto.setUsertype(usertype);
 		service.insert(dto);
 		setAll(request);
-		return "users";
+		return "userfolder/users";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readuser";
+		return "userfolder/readuser";
 	}
 
 	@GetMapping("/logout")

@@ -1,4 +1,6 @@
-<%@ page import="it.contrader.dto.TrackDTO" import="java.util.*"%>
+<%@page import="it.contrader.service.ServiceDTO"%>
+<%@ page import="it.contrader.dto.TrackDTO" import="java.util.*"
+		 import="it.contrader.service.AlbumService" import="it.contrader.dto.AlbumDTO"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -18,6 +20,8 @@
 	<div class="main">
 		<%
 			List<TrackDTO> list = (List<TrackDTO>) request.getSession().getAttribute("list");
+			List<AlbumDTO> albumlist = (List<AlbumDTO>) request.getSession().getAttribute("albumlist");
+			
 		%>
 
 		<br>
@@ -66,6 +70,16 @@
 				<div class="col-75">
 					<input type="text" id="author" name="author"
 						placeholder="inserisci autore">
+				</div>
+				<div class="col-75">
+					<select id="album" name="album">
+					<%
+					for (AlbumDTO a : albumlist){
+					%>
+						<option value=<%=a.getId()%>><%=a.getTitle() +"-"+ a.getAuthor()%></option>
+						
+					<%} %>
+					</select>
 				</div>
 			</div>
 				<button type="submit">Insert</button>

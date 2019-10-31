@@ -6,13 +6,14 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="User Management">
 <meta name="author" content="Vittorio Valent">
-<link href="/css/vittoriostyle.css" rel="stylesheet">
+<link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>User Manager</title>
 
 </head>
 <body>
-	<%@ include file="./css/header.jsp"%>
-	<%@ include file="navbar.jsp" %>
+	<%@ include file="../css/header.jsp"%>
+	<%@ include file="../navbar.jsp" %>
+
 	<div class="main">
 		<%
 			List<UserDTO> list = (List<UserDTO>) request.getSession().getAttribute("list");
@@ -85,6 +86,6 @@
 
 	</div>
 	<br>
-	<%@ include file="./css/footer.jsp"%>
+	<%@ include file="../css/footer.jsp"%>
 </body>
 </html>

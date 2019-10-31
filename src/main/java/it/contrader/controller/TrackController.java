@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.contrader.dto.AlbumDTO;
 import it.contrader.dto.TrackDTO;
-import it.contrader.model.Playlist;
+import it.contrader.model.Album;
 import it.contrader.service.TrackService;
+import it.contrader.service.AlbumService;
 
 @Controller
 @RequestMapping("/track")
@@ -19,12 +21,21 @@ public class TrackController {
 
 	@Autowired
 	private TrackService service;
+	@Autowired
+	private AlbumService albumService;
 
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
+		request.getSession().setAttribute("albumlist", albumService.getAll());
 		return "trackfolder/tracks";
+	}
+	
+	@GetMapping("/gettracks")
+	public String getTracks (HttpServletRequest request, @RequestParam("id") Long id) {
+		request.getSession().setAttribute("tracklist", service.getAllByAlbum_id(id));
+		return "albumfolder/readalbum";
 	}
 
 	@GetMapping("/delete")
@@ -56,10 +67,11 @@ public class TrackController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("title") String title,
-			@RequestParam("author") String author) {
+			@RequestParam("author") String author,@RequestParam("album") Long idalbum) {
 		TrackDTO dto = new TrackDTO();
 		dto.setTitle(title);
 		dto.setAuthor(author);
+		dto.setAlbumDTO(albumService.read(idalbum));
 		service.insert(dto);
 		setAll(request);
 		return "trackfolder/tracks";
@@ -80,4 +92,5 @@ public class TrackController {
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
 	}
+	
 }

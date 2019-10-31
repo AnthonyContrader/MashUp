@@ -1,6 +1,5 @@
 package it.contrader.dto;
 
-import it.contrader.model.Playlist;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,5 +15,7 @@ public class PlaylistDTO {
 	private String name;
 
 	private String genre;
+	
+	private UserDTO userDTO;
 
 }

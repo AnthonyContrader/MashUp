@@ -13,6 +13,6 @@ import it.contrader.model.Track;
 @Transactional
 public interface TrackRepository extends CrudRepository<Track, Long> {
 
-	public List<Track> findByAlbum_id(long id);
+public List<Track> findAllByAlbum_id(Long id);
 
 }

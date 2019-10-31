@@ -9,15 +9,15 @@
 <title>Home</title>
 
 <!-- Bootstrap core CSS -->
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="/css/vittoriostyle.css" rel="stylesheet">
+<link href="../css/vittoriostyle.css" rel="stylesheet">
 </head>
 
 <body>
-	<%@include file="css/header.jsp"%>
-	<%@include file="navbar.jsp" %>
+	<%@include file="../css/header.jsp"%>
+	<%@include file="../guestnavbar.jsp" %>
 
 	<div class="main">
 		<h1>Welcome ${user.getUsername()}</h1>
@@ -61,7 +61,7 @@
 	</div>
 
 
-	<%@ include file="css/footer.jsp"%>
+	<%@ include file="../css/footer.jsp"%>
 
 </body>
 </html>

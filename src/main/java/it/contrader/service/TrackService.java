@@ -1,5 +1,7 @@
 package it.contrader.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -11,14 +13,15 @@ import it.contrader.model.Track;
 
 @Service
 public class TrackService extends AbstractService<Track, TrackDTO> {
-
+	
 	@Autowired
-	private TrackConverter converter;
+	private TrackRepository trackRepository;
 	@Autowired
-	private TrackRepository repository;
+	private TrackConverter trackConverter;
 
-	public TrackDTO findByTitle(String title) {
-		return converter.toDTO(repository.findByTitle(title));
+	public List<TrackDTO> getAllByAlbum_id(Long id) {
+		return trackConverter.toDTOList(trackRepository.findAllByAlbum_id(id));
 	}
-
 }
+
+

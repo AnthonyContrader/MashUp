@@ -7,8 +7,7 @@
 <body>
 
 <div class="navbar">
-		<a href="/userfolder/homeadmin.jsp">Home</a> 
-		<a href=/user/getall>Users</a>
+		<a href="/userfolder/homeguest.jsp">Home</a> 
 		<a href="/album/getall">Albums</a>
 		<a href="/track/getall">Tracks</a>
 		<a href="/playlist/getall">Playlists</a>

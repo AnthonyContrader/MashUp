@@ -21,6 +21,6 @@ public class AlbumDTO {
 	
 	private String year;
 	
-	private List<Track> tracks;
+
 	
 }

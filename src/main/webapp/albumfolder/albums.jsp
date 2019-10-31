@@ -34,7 +34,7 @@
 				for (AlbumDTO a : list) {
 			%>
 			<tr>
-				<td><a href="/album/read?id=<%=a.getId()%>"> <%=a.getTitle()%>
+				<td><a href="/track/gettracks?id=<%=a.getId()%>"> <%=a.getTitle()%>
 				</a></td>
 				<td><%=a.getAuthor()%></td>
 				<td><%=a.getYear()%></td>

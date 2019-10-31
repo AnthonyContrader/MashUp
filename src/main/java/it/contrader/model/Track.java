@@ -38,9 +38,11 @@ public class Track {
 	private Playlist playlist;*/
 	
 	
-	// relazione tra traccia e album
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "idAlbum", referencedColumnName = "id")
+	/*
+relazione tra traccia e album
+	 */
+	@ManyToOne
+	@JoinColumn(name = "id_album", referencedColumnName = "id")
 	private Album album;
 	
 	
