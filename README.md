@@ -1,1 +1,2 @@
-# MashUp
+# SAMPLE
+Sample Projects
