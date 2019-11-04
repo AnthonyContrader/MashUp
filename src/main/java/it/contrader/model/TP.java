@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,9 +21,14 @@ public class TP{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	
-	private Long idtrack;
+	@ManyToOne
+	@JoinColumn(name="id_track", referencedColumnName="id")
+	private Track track;
 	
-	private Long idplaylist;
+	@ManyToOne
+	@JoinColumn(name="id_playlist", referencedColumnName="id")
+	private Playlist playlist;
 	
 }

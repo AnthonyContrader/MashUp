@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="it.contrader.dto.PlaylistDTO"%>
+	pageEncoding="ISO-8859-1" import="it.contrader.dto.TPDTO"
+	import="java.util.List" import="it.contrader.dto.TrackDTO"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -20,7 +21,8 @@
 <br>
 	<div class="main">
 		<%
-			PlaylistDTO p = (PlaylistDTO) request.getSession().getAttribute("dto");
+
+			List<TPDTO> tracks = (List<TPDTO>) request.getSession().getAttribute("playlisttrackslist");
 		%>
 
 
@@ -30,11 +32,15 @@
 				<th>Name</th>
 				<th>Genre</th>
 			</tr>
+			<% for( TPDTO o : tracks) {
+				TrackDTO track = o.getTrackDTO();
+			%>
 			<tr>
 				
-				<td><%=p.getName()%></td>
-				<td><%=p.getGenre()%></td>
+				<td><%=track.getTitle()%></td>
+				<td><%=track.getAuthor()%></td>
 			</tr>
+			<%} %>
 		</table>
 
 		<br> <br> <br> <br> <br> <br> <br>

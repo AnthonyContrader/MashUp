@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import it.contrader.dto.TrackDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.TrackService;
 import it.contrader.service.AlbumService;
+import it.contrader.service.PlaylistService;
 
 @Controller
 @RequestMapping("/track")
@@ -22,6 +24,8 @@ public class TrackController {
 	private TrackService service;
 	@Autowired
 	private AlbumService albumService;
+	@Autowired
+	private PlaylistService playlistService;
 
 
 	@GetMapping("/getall")
@@ -80,7 +84,8 @@ public class TrackController {
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "trackfolder/readtrack";
+		guestPlaylists(request);
+		return "trackfolder/guest_readtrack";
 	}
 
 	@GetMapping("/logout")
@@ -91,6 +96,11 @@ public class TrackController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
+	}
+	private void guestPlaylists (HttpServletRequest request) {
+		UserDTO u = (UserDTO) request.getSession().getAttribute("user");
+		request.getSession().setAttribute("userplaylists", playlistService.getAllByUser_id(u.getId()));	
+		
 	}
 	
 }

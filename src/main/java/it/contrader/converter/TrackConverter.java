@@ -3,7 +3,6 @@ package it.contrader.converter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import it.contrader.dto.AlbumDTO;
 import it.contrader.dto.TrackDTO;
 
 import it.contrader.model.Track;

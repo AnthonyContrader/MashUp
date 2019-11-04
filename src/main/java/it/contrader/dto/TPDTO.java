@@ -12,7 +12,7 @@ public class TPDTO{
 	
 	private Long id;
 	
-	private Long idtrack;
+	private TrackDTO trackDTO;
 	
-	private Long idplaylist;
+	private PlaylistDTO playlistDTO;
 }

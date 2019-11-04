@@ -33,7 +33,7 @@
 				for (PlaylistDTO p : list) {
 			%>
 			<tr>
-				<td><a href="/playlist/read?id=<%=p.getId()%>"> <%=p.getName()%>
+				<td><a href="/tp/read?id=<%=p.getId()%>"> <%=p.getName()%>
 				</a></td>
 				<td><%=(p.getGenre())%></td>
 				<td><a href="/playlist/preupdate?type=guest&id=<%=p.getId()%>">Edit</a></td>
