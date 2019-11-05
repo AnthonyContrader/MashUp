@@ -46,7 +46,7 @@ public class TPController {
 		tp.setPlaylistDTO(playlistService.read(id));
 		tpService.insert(tp);
 		guestPlaylists(request);
-		return "trackfolder/tracks";
+		return "trackfolder/guest_tracks";
 		
 			
 		

@@ -32,6 +32,9 @@ public class TrackController {
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
 		request.getSession().setAttribute("albumlist", albumService.getAll());
+		if(request.getParameter("type").equals("guest"))
+			return "trackfolder/guest_tracks";
+		else
 		return "trackfolder/tracks";
 	}
 	
