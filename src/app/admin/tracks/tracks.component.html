@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Title
+          </th>
+          <th>
+            Author
+          </th>
+          <th>
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Track
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="title" [(ngModel)]="tracktoinsert.title">
+          </td>
+          <td>
+            <input placeholder="author" [(ngModel)]="tracktoinsert.author">
+          </td>
+          <td>
+          </td>
+          <td>
+            <button (click)="insert(tracktoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let track of tracks">
+          <td>
+            <input [(ngModel)]="track.title">
+          </td>
+          <td>
+            <input [(ngModel)]="track.author">
+          </td>
+          <td>
+          </td>
+          <td>
+            <button (click)=update(track)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(track)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

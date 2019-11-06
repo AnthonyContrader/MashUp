@@ -6,7 +6,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { AlbumsComponent } from './albums/albums.component';
-import { PlaylistsComponent } from '../playlists/playlists.component';
+import { PlaylistsComponent } from './playlists/playlists.component';
+import { TracksComponent } from './tracks/tracks.component';
+import { TPsComponent } from './tps/tps.component';
 
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
@@ -17,7 +19,7 @@ import { PlaylistsComponent } from '../playlists/playlists.component';
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, AlbumsComponent, PlaylistsComponent],
+  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, AlbumsComponent, PlaylistsComponent, TracksComponent, TPsComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
