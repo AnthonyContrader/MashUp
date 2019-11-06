@@ -1,0 +1,66 @@
+<div class="container">
+ <div class="row mt-5">
+   <div class= "col-md-1">
+
+   </div>
+
+   <div class="col-md-10">
+     <table>
+       <tr>
+         <th>
+           Title
+         </th>
+         <th>
+           Author
+         </th>
+         <th>
+           Years
+         </th>
+         <th>
+           Edit
+         </th>
+         <th>
+           Album
+         </th>
+      </tr>
+      <tr>
+        <td>
+          <input placeholder="title" [(ngModel)]="albumtoinsert.title">
+        </td>
+        <td>
+          <input placeholder="author" [(ngModel)]="albumtoinsert.author">
+        </td>
+        <td>
+          <input placeholder="years" [(ngModel)]="albumtoinsert.years">
+        </td>
+        <td>
+          <button (click)="insert(albumtoinsert)">Insert</button>
+        </td>
+        <td>
+          <button (click)="clear()">Clear</button>
+        </td>
+      </tr>
+      <tr *ngFor="let album of albums">
+        <td>
+          <input [(ngModel)]="album.title">
+        </td>
+        <td>
+          <input [(ngModel)]="album.author">
+        </td>
+        <td>
+          <input [(ngModel)]="album.years">
+        </td>
+        <td>
+          <button (click)=update(album)>Save</button>
+        </td>
+        <td>
+          <button (click)="delete(album)">Delete</button>
+        </td>
+      </tr>
+     </table>
+   </div>
+   <div class="col-md-1">
+     
+   </div>
+ </div>
+</div>
