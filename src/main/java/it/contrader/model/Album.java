@@ -29,7 +29,7 @@ public class Album {
 	
 	private String author;
 	
-	private String years;
+	private String year;
 	
 	/*relazione tra album e traccia
 	@OneToMany(mappedBy="album")
