@@ -31,7 +31,7 @@
           <input placeholder="author" [(ngModel)]="albumtoinsert.author">
         </td>
         <td>
-          <input placeholder="years" [(ngModel)]="albumtoinsert.years">
+          <input placeholder="year" [(ngModel)]="albumtoinsert.year">
         </td>
         <td>
           <button (click)="insert(albumtoinsert)">Insert</button>
@@ -48,7 +48,7 @@
           <input [(ngModel)]="album.author">
         </td>
         <td>
-          <input [(ngModel)]="album.years">
+          <input [(ngModel)]="album.year">
         </td>
         <td>
           <button (click)=update(album)>Save</button>
