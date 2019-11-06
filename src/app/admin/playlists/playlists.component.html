@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Genre
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Playlist
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="name" [(ngModel)]="playlisttoinsert.name">
+          </td>
+          <td>
+            <input placeholder="genre" [(ngModel)]="playlisttoinsert.genre">
+          </td>
+          <td>
+            <button (click)="insert(playlisttoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let playlist of playlists">
+          <td>
+            <input [(ngModel)]="playlist.name">
+          </td>
+          <td>
+            <input [(ngModel)]="playlist.genre">
+          </td>
+          <td>
+            <button (click)=update(playlist)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(playlist)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
