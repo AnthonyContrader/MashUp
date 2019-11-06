@@ -29,7 +29,7 @@ public class AlbumConverter extends AbstractConverter<Album, AlbumDTO>{
 	public AlbumDTO toDTO(Album album) {
 		AlbumDTO albumDTO = null;
 		if (album != null) {
-			albumDTO = new AlbumDTO(album.getId(), album.getAuthor(), album.getTitle(), album.getYears());
+			albumDTO = new AlbumDTO(album.getId(), album.getTitle(), album.getAuthor(), album.getYears());
 			
 		}
 		return albumDTO;
