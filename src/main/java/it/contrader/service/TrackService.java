@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import it.contrader.converter.AlbumConverter;
 import it.contrader.converter.TrackConverter;
 import it.contrader.dao.TrackRepository;
+import it.contrader.dto.AlbumDTO;
 import it.contrader.dto.TrackDTO;
 import it.contrader.model.Track;
 
@@ -18,9 +20,11 @@ public class TrackService extends AbstractService<Track, TrackDTO> {
 	private TrackRepository trackRepository;
 	@Autowired
 	private TrackConverter trackConverter;
+	@Autowired
+	private AlbumConverter albumConverter;
 
-	public List<TrackDTO> getAllByAlbum_id(Long id) {
-		return trackConverter.toDTOList(trackRepository.findAllByAlbum_id(id));
+	public List<TrackDTO> getAllByAlbum(AlbumDTO album) {
+		return trackConverter.toDTOList(trackRepository.findAllByAlbum(albumConverter.toEntity(album)));
 	}
 }
 

@@ -10,12 +10,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id", scope= TrackDTO.class)
+
 public class TPDTO{
 	
 	private Long id;
 	
 	private TrackDTO trackDTO;
-	
+
 	private PlaylistDTO playlistDTO;
 }

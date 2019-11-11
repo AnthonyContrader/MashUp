@@ -11,4 +11,6 @@ import it.contrader.dto.AlbumDTO;
 @CrossOrigin(origins = "http://localhost:4200")
 public class AlbumController extends AbstractController<AlbumDTO>{
 	
-}
+	
+	}
+	

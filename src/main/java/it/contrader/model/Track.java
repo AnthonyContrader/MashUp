@@ -10,6 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,6 +46,8 @@ relazione tra traccia e album
 	 */
 	@ManyToOne
 	@JoinColumn(name = "id_album", referencedColumnName = "id")
+	@JsonIgnore
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Album album;
 	
 	

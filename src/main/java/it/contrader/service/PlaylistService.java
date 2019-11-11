@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.contrader.converter.PlaylistConverter;
+import it.contrader.converter.UserConverter;
 import it.contrader.dao.PlaylistRepository;
 import it.contrader.dto.PlaylistDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.model.Playlist;
 
 @Service
@@ -17,10 +19,14 @@ public class PlaylistService extends AbstractService<Playlist, PlaylistDTO> {
 	private PlaylistConverter playlistConverter;
 	@Autowired
 	private PlaylistRepository playlistRepository;
+	@Autowired
+	private UserConverter userConverter;
 	
-	public List<PlaylistDTO> getAllByUser_id (Long id){
-		return playlistConverter.toDTOList(playlistRepository.findByUser_id(id));
+	
+	public List<PlaylistDTO> getAllByUser(UserDTO user){
+		return playlistConverter.toDTOList(playlistRepository.findAllByUser(userConverter.toEntity(user)));
 	}
-
+	
+	
 
 }

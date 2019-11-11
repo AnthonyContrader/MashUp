@@ -8,7 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import it.contrader.model.Playlist;
-import it.contrader.model.TP;
+
+import it.contrader.model.User;
 
 
 @Repository
@@ -16,7 +17,7 @@ import it.contrader.model.TP;
 public interface PlaylistRepository extends CrudRepository<Playlist, Long> {
 	
 
-	public List<Playlist> findByUser_id(Long id);
+	public List<Playlist> findAllByUser(User user);
 	
 
 }
