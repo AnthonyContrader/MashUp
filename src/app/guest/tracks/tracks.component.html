@@ -13,12 +13,9 @@
             Author
           </th>
           <th>
-            Add this song.. 
+            Add to playlist
           </th>
-          <th>
-            ..at this playlist
-          </th>
-          <th>
+          <th>Select Playlist:
               <select [(ngModel)]="tptoinsert.playlistDTO">
                   <option *ngFor="let p of playlists" [ngValue]="p">{{p.name}} {{p.genre}} </option>
                </select>
@@ -35,9 +32,6 @@
           <select [(ngModel)]="tptoinsert.trackDTO">
              <option [ngValue]="track">{{track.title}}</option>
           </select>
-          <td>
-   
-          </td>
           <td>
            <button (click)="insert(tptoinsert)">Add</button>
          </td>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDTO } from 'src/dto/userdto';
 
 @Component({
   selector: 'app-work-in-progress',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkInProgressComponent implements OnInit {
 
+  user: UserDTO;
   constructor() { }
 
   ngOnInit() {
+    this.user=JSON.parse(localStorage.getItem('currentUser'));
   }
 
 }
