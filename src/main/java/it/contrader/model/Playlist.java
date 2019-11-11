@@ -50,13 +50,13 @@ public class Playlist {
 	private List<Track> tracks;*/
 	
 	
-	@JsonIgnore
+
 	@JoinColumn(name="id_user", referencedColumnName="id")
 	@ManyToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private User user;
 	
-	/*;*/
+	
 
 
 }

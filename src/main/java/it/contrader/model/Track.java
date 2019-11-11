@@ -1,5 +1,6 @@
 package it.contrader.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,17 +37,10 @@ public class Track {
 
 	private String author;
 	
-	/*@ManyToOne
-	@JoinColumn(name = "idplaylist", referencedColumnName = "id")
-	private Playlist playlist;*/
-	
-	
-	/*
-relazione tra traccia e album
-	 */
+
+
 	@ManyToOne
 	@JoinColumn(name = "id_album", referencedColumnName = "id")
-	@JsonIgnore
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Album album;
 	

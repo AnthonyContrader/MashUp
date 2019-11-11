@@ -29,13 +29,11 @@ public class TP{
 
 	
 	@ManyToOne
-	@JsonIgnore
 	@JoinColumn(name="id_track", referencedColumnName="id")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Track track;
 	
 	@ManyToOne
-	@JsonIgnore
 	@JoinColumn(name="id_playlist", referencedColumnName="id")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Playlist playlist;
