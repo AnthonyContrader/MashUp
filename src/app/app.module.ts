@@ -7,6 +7,7 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
+import { GuestModule } from './guest/guest.module';
 
 
 /** 
@@ -26,7 +27,8 @@ import { AdminModule } from './admin/admin.module';
     LoginModule,
     HttpClientModule,
     LayoutModule,
-    AdminModule
+    AdminModule,
+    GuestModule
   ],
   providers: [],
   bootstrap: [AppComponent]

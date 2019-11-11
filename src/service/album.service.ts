@@ -3,6 +3,7 @@ import { AbstractService } from './abstractservice';
 import { AlbumDTO } from 'src/dto/albumdto';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TrackDTO } from 'src/dto/trackdto';
 
 @Injectable({
     providedIn: 'root'
@@ -13,4 +14,6 @@ export class AlbumService extends AbstractService<AlbumDTO>{
         super(http);
         this.type = 'album';
     }
+   
+
 }

@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Title
+          </th>
+          <th>
+            Author
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Track
+          </th>
+        </tr> 
+          
+        <tr *ngFor="let tp of tps">
+            <td>
+                <input [(ngModel)]="tp.trackDTO.title">
+              </td>
+              <td>
+                <input [(ngModel)]="tp.trackDTO.author">
+              </td>
+              <td>
+                <button (click)=delete(tp)>Delete</button>
+              </td>
+              <td>
+                 </td>
+              
+              
+         
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

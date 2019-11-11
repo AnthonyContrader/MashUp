@@ -29,6 +29,9 @@
             <input placeholder="author" [(ngModel)]="tracktoinsert.author">
           </td>
           <td>
+          <select [(ngModel)]="tracktoinsert.albumDTO">
+              <option *ngFor="let album of albums " [ngValue]="album">{{album.title}} {{album.author}}</option>
+          </select>
           </td>
           <td>
             <button (click)="insert(tracktoinsert)">Insert</button>

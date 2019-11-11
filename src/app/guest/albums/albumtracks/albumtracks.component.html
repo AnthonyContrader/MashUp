@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Title
+          </th>
+          <th>
+            Author
+          </th>
+        </tr>
+        <tr *ngFor="let track of tracks">
+          <td>
+           {{track.title}}
+          </td>
+          <td>
+            {{track.author}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

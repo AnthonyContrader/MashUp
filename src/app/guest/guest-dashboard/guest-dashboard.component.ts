@@ -8,11 +8,11 @@ import { AlbumDTO } from 'src/dto/albumdto';
  * l'utente loggato per il messaggio di benvenuto.
  */
 @Component({
-  selector: 'app-admin-dashboard',
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  selector: 'app-guest-dashboard',
+  templateUrl: './guest-dashboard.component.html',
+  styleUrls: ['./guest-dashboard.component.css']
 })
-export class AdminDashboardComponent implements OnInit {
+export class GuestDashboardComponent implements OnInit {
 
   user: UserDTO;
   album: AlbumDTO;

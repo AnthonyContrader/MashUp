@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackService } from 'src/service/track.service';
 import { TrackDTO } from 'src/dto/trackdto';
+import { AlbumDTO } from 'src/dto/albumdto';
+import { AlbumService } from 'src/service/album.service';
 
 @Component({
   selector: 'app-tracks',
@@ -9,12 +11,15 @@ import { TrackDTO } from 'src/dto/trackdto';
 })
 export class TracksComponent implements OnInit {
 
+  albums: AlbumDTO[];
   tracks: TrackDTO[];
   tracktoinsert: TrackDTO = new TrackDTO();
 
-  constructor(private service: TrackService) { }
+  constructor(private service: TrackService, private albumService: AlbumService) { }
+  
 
   ngOnInit() {
+        this.getAllAlbums();
     this.getTracks();
   }
 
@@ -36,5 +41,9 @@ export class TracksComponent implements OnInit {
 
   clear(){
     this.tracktoinsert = new TrackDTO();
+  }
+
+  getAllAlbums(){
+    this.albumService.getAll().subscribe(albums => this.albums = albums);
   }
 }

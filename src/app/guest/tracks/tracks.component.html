@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Title
+          </th>
+          <th>
+            Author
+          </th>
+          <th>
+            Add this song.. 
+          </th>
+          <th>
+            ..at this playlist
+          </th>
+          <th>
+              <select [(ngModel)]="tptoinsert.playlistDTO">
+                  <option *ngFor="let p of playlists" [ngValue]="p">{{p.name}} {{p.genre}} </option>
+               </select>
+          </th>
+        </tr>
+   
+        <tr *ngFor="let track of tracks">
+          <td>
+            {{track.title}}
+          </td>
+          <td>
+           {{track.author}}
+          </td>
+          <select [(ngModel)]="tptoinsert.trackDTO">
+             <option [ngValue]="track">{{track.title}}</option>
+          </select>
+          <td>
+   
+          </td>
+          <td>
+           <button (click)="insert(tptoinsert)">Add</button>
+         </td>
+             
+       </tr>
+       </table>
+      
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
