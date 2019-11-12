@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "manytoone",
+            "otherEntityName": "album",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "author"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "author",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20191112152520",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "track",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "micro1"
+}
